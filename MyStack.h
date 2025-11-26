@@ -46,7 +46,17 @@ namespace myStack {
             }
         }
         void pop_back() {
+            if (isEmpty()) throw "Stack is empty!";
 
+            if (head != current) {
+                current = current->prev;
+                delete current->next;
+                current->next = nullptr;
+            }
+            else {
+                delete current;
+                head = current = nullptr;
+            }
         }
         void showStack()const{ ...	}
     };
